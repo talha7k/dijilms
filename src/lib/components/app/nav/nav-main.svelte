@@ -4,6 +4,7 @@
  	import Icon from '@iconify/svelte';
  	import { appNavItems } from '../../../../config';
  	import { userProfile } from '$lib/stores/user';
+ 	import { isSidebarOpen } from '$lib/stores/sidebar';
  </script>
 
 {#each appNavItems as mainItem (mainItem.title)}
@@ -37,9 +38,9 @@
                           <Sidebar.MenuSubItem>
                             <Sidebar.MenuSubButton>
                               {#snippet child({ props })}
-                                <a href={subItem.url} {...props}>
-                                  <span>{subItem.title}</span>
-                                </a>
+                                 <a href={subItem.url} {...props} onclick={() => isSidebarOpen.set(false)}>
+                                   <span>{subItem.title}</span>
+                                 </a>
                               {/snippet}
                             </Sidebar.MenuSubButton>
                           </Sidebar.MenuSubItem>
@@ -56,12 +57,12 @@
             <Sidebar.MenuItem>
               <Sidebar.MenuButton>
                 {#snippet child({ props })}
-                  <a href={item.url} {...props}>
-                    {#if item.icon}
-                      <Icon icon={item.icon} />
-                    {/if}
-                    <span>{item.title}</span>
-                  </a>
+                   <a href={item.url} {...props} onclick={() => isSidebarOpen.set(false)}>
+                     {#if item.icon}
+                       <Icon icon={item.icon} />
+                     {/if}
+                     <span>{item.title}</span>
+                   </a>
                 {/snippet}
               </Sidebar.MenuButton>
             </Sidebar.MenuItem>
