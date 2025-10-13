@@ -1,9 +1,8 @@
 import type { NavItem, SidebarNav, SocialLink } from "$lib/types/nav";
 
 export const siteConfig = {
-  title: "Svelte Firekit Starter",
-  description:
-    "A SvelteKit starter template with Firebase authentication, Firestore, and storage.",
+  title: "Elite LMS",
+  description: "An LMS designed for professionals and schools.",
   logo: "/logo.svg",
   logoDark: "/logo.svg",
   favicon: "/favicon.png",
@@ -42,6 +41,26 @@ export const appNavItems: SidebarNav[] = [
         title: "Dashboard",
         url: "/dashboard",
         icon: "lucide:layout-dashboard",
+      },
+    ],
+  },
+  {
+    title: "Teacher Portal",
+    items: [
+      {
+        title: "Teacher Dashboard",
+        url: "/teacher",
+        icon: "lucide:school",
+      },
+      {
+        title: "Course Management",
+        url: "/teacher/courses",
+        icon: "lucide:book-open",
+      },
+      {
+        title: "Student Oversight",
+        url: "/teacher/students",
+        icon: "lucide:users",
       },
     ],
   },
