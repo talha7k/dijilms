@@ -18,7 +18,7 @@
 			</h2>
 			<div class="flex flex-col items-center gap-3 lg:flex-row">
 				<span class="flex items-center gap-2">
-					<Icon icon="lucide:graduation-cap" width={20} /> Save up to 20%
+					<Icon icon="lucide:graduation-cap" width={20} class="text-primary" /> Save up to 20%
 				</span>
 				<div class="flex items-center space-x-2">
 					<Label for="billing-switch">Monthly</Label>
@@ -44,7 +44,7 @@
 						<ul class="mb-12 space-y-6">
 							{#each plan.features as feature}
 								<li class="flex items-center space-x-3">
-									<Icon icon="lucide:check" class="h-6 w-6" />
+									<Icon icon="lucide:check" class="h-6 w-6 text-primary" />
 									<span>{feature}</span>
 								</li>
 							{/each}

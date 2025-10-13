@@ -51,6 +51,8 @@ Use tailwind-variants to create type-safe, reusable component variants.
 
 Use the cn() utility function from bits-ui for conditionally merging Tailwind CSS classes.
 
+Always use theme colors (e.g., text-primary, bg-accent) instead of hardcoded color values to ensure consistency and easy theming.
+
 Imports: Group imports in the following order:
 
 Svelte / SvelteKit imports
@@ -88,7 +90,7 @@ src/lib/firebase.ts: Initializes the client-side Firebase app. This is safe to e
 
 State Management:
 
-Server-Side: Data is passed from *.server.ts files to pages via the data prop.
+Server-Side: Data is passed from \*.server.ts files to pages via the data prop.
 
 Client-Side: We use Svelte stores (src/lib/stores/) for managing client-side state. Our custom cacheableStore utility provides a caching layer to minimize Firestore reads and improve perceived performance during navigation.
 
@@ -110,33 +112,33 @@ The project is organized by feature and domain to ensure modularity and scalabil
 
 src/
 ├── lib/
-│   ├── components/
-│   │   ├── course/         # Course-specific components (CourseCard)
-│   │   ├── ui/             # Generic, reusable UI components (Button, Card)
-│   │   ├── shared/         # Shared components (Breadcrumbs, ThemeToggle)
-│   │   └── ...             # Other feature-based component folders
-│   ├── server/             # SERVER-SIDE ONLY code
-│   │   ├── firebase-admin.ts # Firebase Admin SDK initialization
-│   │   └── db.ts           # Server-side database helpers
-│   ├── stores/             # Svelte stores for client-side state
-│   │   ├── cacheableStore.ts # Generic store with caching logic
-│   │   └── courseStores.ts # Example: stores for course questions
-│   ├── types/              # Global TypeScript type definitions
-│   │   └── index.ts        # e.g., export type Course = { ... }
-│   ├── firebase.ts         # CLIENT-SIDE Firebase SDK initialization
-│   └── utils.ts            # Utility functions (e.g., cn)
+│ ├── components/
+│ │ ├── course/ # Course-specific components (CourseCard)
+│ │ ├── ui/ # Generic, reusable UI components (Button, Card)
+│ │ ├── shared/ # Shared components (Breadcrumbs, ThemeToggle)
+│ │ └── ... # Other feature-based component folders
+│ ├── server/ # SERVER-SIDE ONLY code
+│ │ ├── firebase-admin.ts # Firebase Admin SDK initialization
+│ │ └── db.ts # Server-side database helpers
+│ ├── stores/ # Svelte stores for client-side state
+│ │ ├── cacheableStore.ts # Generic store with caching logic
+│ │ └── courseStores.ts # Example: stores for course questions
+│ ├── types/ # Global TypeScript type definitions
+│ │ └── index.ts # e.g., export type Course = { ... }
+│ ├── firebase.ts # CLIENT-SIDE Firebase SDK initialization
+│ └── utils.ts # Utility functions (e.g., cn)
 ├── routes/
-│   ├── (app)/              # Authenticated user routes (dashboard, courses)
-│   │   └── courses/
-│   │       └── [courseId]/
-│   │           ├── +page.server.ts # Fetches core course data (server)
-│   │           └── +page.svelte    # Renders course page, loads dynamic data (client)
-│   ├── (auth)/             # Auth routes (login, register, forgot-password)
-│   ├── (marketing)/        # Public marketing routes (homepage, pricing)
-│   └── api/                # API endpoints
-├── app.css                 # Global CSS styles (Tailwind base layers)
-├── app.d.ts                # Global TypeScript declarations
-└── hooks.server.ts         # Server-side hooks (e.g., auth handling)
+│ ├── (app)/ # Authenticated user routes (dashboard, courses)
+│ │ └── courses/
+│ │ └── [courseId]/
+│ │ ├── +page.server.ts # Fetches core course data (server)
+│ │ └── +page.svelte # Renders course page, loads dynamic data (client)
+│ ├── (auth)/ # Auth routes (login, register, forgot-password)
+│ ├── (marketing)/ # Public marketing routes (homepage, pricing)
+│ └── api/ # API endpoints
+├── app.css # Global CSS styles (Tailwind base layers)
+├── app.d.ts # Global TypeScript declarations
+└── hooks.server.ts # Server-side hooks (e.g., auth handling)
 
 Testing Strategy
 No automated testing framework is configured. Use manual testing and svelte-check for type validation.

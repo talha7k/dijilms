@@ -20,7 +20,7 @@
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:book-open" width={26} />
+						<Icon icon="lucide:book-open" width={26} class="text-primary" />
 					</div>
 					<h4 class="mb-2 text-base font-semibold capitalize">Course Management</h4>
 					<p class="text-sm leading-5">
@@ -33,7 +33,7 @@
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:brain" width={26} />
+						<Icon icon="lucide:brain" width={26} class="text-primary" />
 					</div>
 					<h4 class="mb-2 text-base font-semibold capitalize">AI-Powered Assessments</h4>
 					<p class="text-sm leading-5">
@@ -46,7 +46,7 @@
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:bar-chart" width={26} />
+						<Icon icon="lucide:bar-chart" width={26} class="text-primary" />
 					</div>
 					<h4 class="mb-2 text-base font-semibold capitalize">Advanced Progress Tracking</h4>
 					<p class="text-sm leading-5">
@@ -59,7 +59,7 @@
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:users" width={26} />
+						<Icon icon="lucide:users" width={26} class="text-primary" />
 					</div>
 					<h4 class="mb-2 text-base font-semibold capitalize">Multi-Role Portals</h4>
 					<p class="text-sm leading-5">
@@ -72,7 +72,7 @@
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:message-circle" width={26} />
+						<Icon icon="lucide:message-circle" width={26} class="text-primary" />
 					</div>
 					<h4 class="mb-2 text-base font-semibold capitalize">Communication Tools</h4>
 					<p class="text-sm leading-5">
@@ -85,7 +85,7 @@
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:trophy" width={26} />
+						<Icon icon="lucide:trophy" width={26} class="text-primary" />
 					</div>
 					<h4 class="mb-2 text-base font-semibold capitalize">Gamification & Certifications</h4>
 					<p class="text-sm leading-5">
@@ -117,15 +117,15 @@
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Multimedia content support (videos, documents, quizzes)</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Modular course structure with prerequisites</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Customizable learning paths and certificates</span>
 						</li>
 					</ul>
@@ -147,15 +147,15 @@
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Automatic quiz generation from course content</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Adaptive testing based on student performance</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Instant AI-driven grading and feedback</span>
 						</li>
 					</ul>
@@ -171,15 +171,15 @@
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Real-time progress dashboards</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Detailed performance analytics</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Early intervention alerts</span>
 						</li>
 					</ul>
@@ -201,15 +201,15 @@
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Teacher dashboard with course management</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Student portal with personalized learning</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Parent access to child progress</span>
 						</li>
 					</ul>
@@ -225,15 +225,15 @@
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Direct messaging between teachers and parents</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Automated progress notifications</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Group discussion forums</span>
 						</li>
 					</ul>
@@ -255,15 +255,15 @@
 					</p>
 					<ul class="space-y-2">
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Badges and achievement systems</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Leaderboards and competitions</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<Icon icon="lucide:check" class="h-5 w-5 text-primary" />
 							<span>Automated certificate generation</span>
 						</li>
 					</ul>

@@ -7,7 +7,7 @@
 <section class=" bg-center pt-28 lg:pt-32">
 	<div class=" mx-auto flex max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8">
 
-		<h1 class="mb-5 max-w-2xl text-center text-4xl font-bold md:text-5xl">
+		<h1 class="mb-5 max-w-2xl text-center text-4xl font-bold md:text-5xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
 			{siteConfig.title}
 		</h1>
 		<p class="mb-9 max-w-sm text-center">

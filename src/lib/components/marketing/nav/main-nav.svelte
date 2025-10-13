@@ -84,7 +84,7 @@
 								</DropdownMenu.Root>
 							{:else}
 								<!-- Regular Button for single items -->
-								<Button variant="ghost" href={item.url}>
+								<Button variant="ghost" href={item.url} class={path === item.url ? 'text-primary font-semibold' : ''}>
 									{#if item.icon}
 										<Icon icon={item.icon} />
 									{/if}
