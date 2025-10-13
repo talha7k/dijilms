@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can read/write their own profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Courses: instructors can manage their courses, students can read published courses
+    match /courses/{courseId} {
+      allow read: if request.auth != null &&
+        (resource.data.published == true || resource.data.instructorId == request.auth.uid);
+      allow create: if request.auth != null && request.auth.uid == resource.data.instructorId;
+      allow update, delete: if request.auth != null && resource.data.instructorId == request.auth.uid;
+    }
+
+    // Modules and lessons as subcollections
+    match /courses/{courseId}/modules/{moduleId} {
+      allow read: if request.auth != null &&
+        (get(/databases/$(database)/documents/courses/$(courseId)).data.published == true ||
+         get(/databases/$(database)/documents/courses/$(courseId)).data.instructorId == request.auth.uid);
+      allow write: if request.auth != null &&
+        get(/databases/$(database)/documents/courses/$(courseId)).data.instructorId == request.auth.uid;
+    }
+
+    match /courses/{courseId}/modules/{moduleId}/lessons/{lessonId} {
+      allow read: if request.auth != null &&
+        (get(/databases/$(database)/documents/courses/$(courseId)).data.published == true ||
+         get(/databases/$(database)/documents/courses/$(courseId)).data.instructorId == request.auth.uid);
+      allow write: if request.auth != null &&
+        get(/databases/$(database)/documents/courses/$(courseId)).data.instructorId == request.auth.uid;
+    }
+
+    // Other collections can be added as needed
+  }
+}
