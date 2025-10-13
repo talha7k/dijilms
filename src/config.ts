@@ -84,6 +84,26 @@ export const appNavItems: SidebarNav[] = [
       },
     ],
   },
+  {
+    title: "Parent Portal",
+    items: [
+      {
+        title: "Parent Dashboard",
+        url: "/parent",
+        icon: "lucide:user-check",
+      },
+      {
+        title: "Child Progress",
+        url: "/parent/progress",
+        icon: "lucide:bar-chart",
+      },
+      {
+        title: "Communication",
+        url: "/parent/communication",
+        icon: "lucide:message-circle",
+      },
+    ],
+  },
 ];
 
 export const socialLinks: SocialLink[] = [

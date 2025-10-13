@@ -26,7 +26,7 @@ export interface UserProfile {
   language: string;
 
   // Role-based access control
-  role: "user" | "admin" | "moderator" | "teacher" | "student";
+  role: "user" | "admin" | "moderator" | "teacher" | "student" | "parent";
   permissions: string[];
 
   // Address information (optional)
@@ -47,4 +47,13 @@ export interface UserProfile {
     lastIPAddress?: string;
     accountStatus: "active" | "suspended" | "deactivated";
   };
+}
+
+export interface ParentAccess {
+  id: string;
+  parentId: string;
+  childId: string;
+  approved: boolean;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
 }
