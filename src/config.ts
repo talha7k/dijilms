@@ -108,9 +108,14 @@ export const appNavItems: SidebarNav[] = [
 
 export const socialLinks: SocialLink[] = [
   {
-    title: "Elite Riyadh",
-    url: "https://www.linkedin.com/company/elite-riyadh",
-    icon: "linkedin",
+    title: "Facebook",
+    url: "https://www.facebook.com/elite-riyadh",
+    icon: "fa:facebook",
+  },
+  {
+    title: "Instagram",
+    url: "https://www.instagram.com/elite_riyadh",
+    icon: "fa:instagram",
   },
 ];
 

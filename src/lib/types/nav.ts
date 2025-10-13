@@ -11,18 +11,7 @@ export interface NavItem {
 export interface SocialLink {
   title: string;
   url: string;
-  icon: keyof SocialIcons;
-}
-
-export interface SocialIcons {
-  twitter: string;
-  github: string;
-  facebook: string;
-  instagram: string;
-  linkedin: string;
-  youtube: string;
-  tiktok: string;
-  snapchat: string;
+  icon: string;
 }
 
 export interface SidebarNav {
