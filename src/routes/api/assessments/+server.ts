@@ -1,29 +1,18 @@
 import { json, error } from "@sveltejs/kit";
-import { getFirestore } from "firebase-admin/firestore";
+import { getDb } from "$lib/firebase-admin";
 import { assessmentSchema } from "$lib/schemas/assessment";
 import * as v from "valibot";
 import type { RequestHandler } from "./$types";
-
-const db = getFirestore();
+import type { Assessment } from "$lib/types/assessment";
 
 export const GET: RequestHandler = async ({ url, locals }) => {
   try {
-    const courseId = url.searchParams.get("courseId");
-    let query = db.collection("assessments");
-
-    if (courseId) {
-      query = query.where("courseId", "==", courseId);
-    }
-
-    const snapshot = await query.get();
-    const assessments = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-      createdAt: doc.data().createdAt?.toDate(),
-      updatedAt: doc.data().updatedAt?.toDate(),
-      dueDate: doc.data().dueDate?.toDate(),
-    }));
-
+    const db = getDb();
+    const assessmentsRef = db.collection("assessments");
+    const snapshot = await assessmentsRef.get();
+    const assessments: Assessment[] = snapshot.docs.map(
+      (doc) => ({ id: doc.id, ...doc.data() }) as Assessment,
+    );
     return json(assessments);
   } catch (err) {
     console.error("Error fetching assessments:", err);
@@ -36,6 +25,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
     const data = await request.json();
     const validatedData = v.parse(assessmentSchema, data);
 
+    const db = getDb();
     const assessmentRef = db.collection("assessments").doc();
     const assessment = {
       ...validatedData,
@@ -45,6 +35,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
     };
 
     await assessmentRef.set(assessment);
+
     return json(assessment, { status: 201 });
   } catch (err) {
     if (err instanceof v.ValiError) {

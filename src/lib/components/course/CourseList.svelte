@@ -3,18 +3,25 @@
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import type { Course } from '$lib/types/course';
 
-  export let courses: Course[] = [];
-  export let loading = false;
-
-  export let onEdit: (course: Course) => void;
-  export let onDelete: (course: Course) => void;
-  export let onCreate: () => void;
+  let {
+    courses = [],
+    loading = false,
+    onEdit,
+    onDelete,
+    onCreate
+  }: {
+    courses?: Course[];
+    loading?: boolean;
+    onEdit: (course: Course) => void;
+    onDelete: (course: Course) => void;
+    onCreate: () => void;
+  } = $props();
 </script>
 
 <div class="space-y-4">
   <div class="flex justify-between items-center">
     <h2 class="text-2xl font-bold">My Courses</h2>
-    <Button on:click={onCreate}>Create Course</Button>
+    <Button onclick={onCreate}>Create Course</Button>
   </div>
 
   {#if loading}
@@ -31,8 +38,8 @@
           <CardContent>
             <p class="text-sm text-muted-foreground mb-4">{course.description}</p>
             <div class="flex gap-2">
-              <Button variant="outline" size="sm" on:click={() => onEdit(course)}>Edit</Button>
-              <Button variant="destructive" size="sm" on:click={() => onDelete(course)}>Delete</Button>
+              <Button variant="outline" size="sm" onclick={() => onEdit(course)}>Edit</Button>
+              <Button variant="destructive" size="sm" onclick={() => onDelete(course)}>Delete</Button>
             </div>
           </CardContent>
         </Card>

@@ -6,14 +6,13 @@
   import { Label } from '$lib/components/ui/label';
   import type { Module } from '$lib/types/course';
 
-  export let module: Partial<Module> = {};
-  export let loading = false;
+  let { module = {}, loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ save: Partial<Module> }>();
 
-  let title = module.title || '';
-  let description = module.description || '';
-  let order = module.order || 1;
+  let title = $state(module.title || '');
+  let description = $state(module.description || '');
+  let order = $state(module.order || 1);
 
   function handleSubmit() {
     dispatch('save', {
@@ -24,7 +23,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="space-y-4">
+<form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }} class="space-y-4">
   <div>
     <Label for="title">Module Title</Label>
     <Input id="title" bind:value={title} required />

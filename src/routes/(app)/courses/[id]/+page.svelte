@@ -3,17 +3,17 @@
   import CourseForm from '$lib/components/course/CourseForm.svelte';
   import ModuleList from '$lib/components/course/ModuleList.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { Dialog, DialogContent, DialogHeader, DialogTitle } from '$lib/components/ui/dialog';
+  // import { Dialog, DialogContent, DialogHeader, DialogTitle } from '$lib/components/ui/dialog';
   import type { Course, Module } from '$lib/types/course';
   import type { PageData } from './$types';
 
-  export let data: PageData;
+  let { data }: { data: PageData } = $props();
 
-  let course: Course = data.course;
-  let saving = false;
-  let publishing = false;
-  let showModuleDialog = false;
-  let editingModule: Module | null = null;
+  let course: Course = $state(data.course);
+  let saving = $state(false);
+  let publishing = $state(false);
+  let showModuleDialog = $state(false);
+  let editingModule: Module | null = $state(null);
 
   async function handleSave(updatedData: Partial<Course>) {
     saving = true;
@@ -94,7 +94,7 @@
 
 <div class="container mx-auto py-8">
   <div class="mb-4">
-    <Button variant="outline" on:click={() => goto('/courses')}>Back to Courses</Button>
+    <Button variant="outline" onclick={() => goto('/courses')}>Back to Courses</Button>
   </div>
 
   <h1 class="text-3xl font-bold mb-8">Edit Course</h1>
@@ -104,30 +104,22 @@
       <h2 class="text-2xl font-semibold">Course Details</h2>
       <Button
         variant={course.published ? "destructive" : "default"}
-        on:click={handleTogglePublish}
+        onclick={handleTogglePublish}
         disabled={publishing}
       >
         {#if publishing}Processing...{:else}{course.published ? "Unpublish" : "Publish"} Course{/if}
       </Button>
     </div>
 
-    <CourseForm {course} loading={saving} on:save={handleSave} />
+    <CourseForm {course} loading={saving} onsave={(e) => handleSave(e.detail)} />
 
     <ModuleList
       modules={course.modules}
-      on:addModule={handleAddModule}
-      on:editModule={handleEditModule}
-      on:deleteModule={handleDeleteModule}
+      onaddModule={(e) => handleAddModule(e.detail)}
+      oneditModule={(e) => handleEditModule(e.detail)}
+      ondeleteModule={(e) => handleDeleteModule(e.detail)}
     />
   </div>
 
-  <Dialog bind:open={showModuleDialog}>
-    <DialogContent>
-      <DialogHeader>
-        <DialogTitle>{editingModule ? 'Edit Module' : 'Add Module'}</DialogTitle>
-      </DialogHeader>
-      <!-- ModuleForm would go here, but for brevity, assume it's implemented -->
-      <p>Module form placeholder</p>
-    </DialogContent>
-  </Dialog>
+
 </div>

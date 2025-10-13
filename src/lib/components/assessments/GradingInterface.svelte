@@ -7,13 +7,12 @@
   import { Card } from '$lib/components/ui/card';
   import type { Submission } from '$lib/types/assessment';
 
-  export let submissions: Submission[] = [];
-  export let loading = false;
+  let { submissions = [], loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ grade: { submissionId: string; score: number; feedback: string } }>();
 
-  let score = 0;
-  let feedback = '';
+  let score = $state(0);
+  let feedback = $state('');
 
   function handleGrade(submissionId: string, score: number, feedback: string) {
     dispatch('grade', { submissionId, score, feedback });
@@ -49,7 +48,7 @@
             <p><strong>Feedback:</strong> {submission.feedback}</p>
           {/if}
         {:else}
-          <form on:submit|preventDefault={() => handleGrade(submission.id, score, feedback)} class="space-y-2">
+          <form onsubmit={(e) => { e.preventDefault(); handleGrade(submission.id, score, feedback); }} class="space-y-2">
             <div>
               <Label for="score-{submission.id}">Score</Label>
               <Input id="score-{submission.id}" type="number" bind:value={score} min="0" required />

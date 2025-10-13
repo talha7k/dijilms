@@ -8,11 +8,11 @@
   import type { Enrollment } from '$lib/types/enrollment';
 
   let courses: Course[] = [];
-  let enrollments: Enrollment[] = [];
-  let searchQuery = '';
-  let loading = true;
-  let showEnrollDialog = false;
-  let selectedCourse: Course | null = null;
+  let enrollments = $state<Enrollment[]>([]);
+  let searchQuery = $state('');
+  let loading = $state(true);
+  let showEnrollDialog = $state(false);
+  let selectedCourse = $state<Course | null>(null);
 
   onMount(async () => {
     await loadCourses();
@@ -71,10 +71,10 @@
     }
   }
 
-  $: filteredCourses = courses.filter(course =>
+  let filteredCourses = $derived(courses.filter(course =>
     course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     course.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  ));
 </script>
 
 <svelte:head>
@@ -108,7 +108,7 @@
             {#if isEnrolled(course.id)}
               <Button disabled>Enrolled</Button>
             {:else}
-              <Button on:click={() => handleEnrollClick(course)}>Enroll</Button>
+              <Button onclick={() => handleEnrollClick(course)}>Enroll</Button>
             {/if}
           </CardContent>
         </Card>
@@ -123,8 +123,8 @@
       </DialogHeader>
       <p>Are you sure you want to enroll in "{selectedCourse?.title}"?</p>
       <DialogFooter>
-        <Button variant="outline" on:click={() => showEnrollDialog = false}>Cancel</Button>
-        <Button on:click={confirmEnroll}>Confirm</Button>
+        <Button variant="outline" onclick={() => showEnrollDialog = false}>Cancel</Button>
+        <Button onclick={confirmEnroll}>Confirm</Button>
       </DialogFooter>
     </DialogContent>
   </Dialog>

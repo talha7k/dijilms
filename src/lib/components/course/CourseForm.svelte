@@ -7,14 +7,13 @@
   import { Checkbox } from '$lib/components/ui/checkbox';
   import type { Course } from '$lib/types/course';
 
-  export let course: Partial<Course> = {};
-  export let loading = false;
+  let { course = {}, loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ save: Partial<Course> }>();
 
-  let title = course.title || '';
-  let description = course.description || '';
-  let published = course.published || false;
+  let title = $state(course.title || '');
+  let description = $state(course.description || '');
+  let published = $state(course.published || false);
 
   function handleSubmit() {
     dispatch('save', {
@@ -25,7 +24,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="space-y-4">
+<form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }} class="space-y-4">
   <div>
     <Label for="title">Course Title</Label>
     <Input id="title" bind:value={title} required />

@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import * as v from "valibot";
 import { courseSchema, moduleSchema, lessonSchema } from "./course";
 
 describe("Course Schemas", () => {
@@ -9,7 +10,7 @@ describe("Course Schemas", () => {
       published: true,
     };
 
-    const result = courseSchema.safeParse(validCourse);
+    const result = v.safeParse(courseSchema, validCourse);
     expect(result.success).toBe(true);
   });
 
@@ -20,7 +21,7 @@ describe("Course Schemas", () => {
       published: true,
     };
 
-    const result = courseSchema.safeParse(invalidCourse);
+    const result = v.safeParse(courseSchema, invalidCourse);
     expect(result.success).toBe(false);
   });
 
@@ -31,7 +32,7 @@ describe("Course Schemas", () => {
       order: 1,
     };
 
-    const result = moduleSchema.safeParse(validModule);
+    const result = v.safeParse(moduleSchema, validModule);
     expect(result.success).toBe(true);
   });
 
@@ -42,7 +43,7 @@ describe("Course Schemas", () => {
       order: 1,
     };
 
-    const result = lessonSchema.safeParse(validLesson);
+    const result = v.safeParse(lessonSchema, validLesson);
     expect(result.success).toBe(true);
   });
 });

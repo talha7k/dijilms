@@ -4,12 +4,12 @@
   import { Textarea } from '$lib/components/ui/textarea';
   import { Label } from '$lib/components/ui/label';
 
-  export let loading = false;
+  let { loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ submit: { submission: string; file?: File } }>();
 
-  let submission = '';
-  let file: File | undefined;
+  let submission = $state('');
+  let file: File | undefined = $state(undefined);
 
   function handleFileSelect(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -28,7 +28,7 @@
       id="submission"
       bind:value={submission}
       placeholder="Enter your assignment submission here..."
-      rows="10"
+      rows={10}
     />
   </div>
 
@@ -37,7 +37,7 @@
     <input
       id="file"
       type="file"
-      on:change={handleFileSelect}
+      onchange={handleFileSelect}
       class="w-full p-2 border rounded"
     />
     {#if file}
@@ -45,7 +45,7 @@
     {/if}
   </div>
 
-  <Button on:click={handleSubmit} disabled={loading || (!submission.trim() && !file)}>
+  <Button onclick={handleSubmit} disabled={loading || (!submission.trim() && !file)}>
     {#if loading}Submitting...{:else}Submit Assignment{/if}
   </Button>
 </div>

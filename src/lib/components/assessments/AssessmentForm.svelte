@@ -7,17 +7,16 @@
 
   import type { Assessment } from '$lib/types/assessment';
 
-  export let assessment: Partial<Assessment> = {};
-  export let loading = false;
+  let { assessment = {}, loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ save: Partial<Assessment> }>();
 
-  let title = assessment.title || '';
-  let description = assessment.description || '';
-  let type: 'quiz' | 'assignment' = assessment.type || 'quiz';
-  let instructions = assessment.instructions || '';
-  let maxScore = assessment.maxScore || 100;
-  let dueDate = assessment.dueDate ? assessment.dueDate.toISOString().split('T')[0] : '';
+  let title = $state(assessment.title || '');
+  let description = $state(assessment.description || '');
+  let type: 'quiz' | 'assignment' = $state(assessment.type || 'quiz');
+  let instructions = $state(assessment.instructions || '');
+  let maxScore = $state(assessment.maxScore || 100);
+  let dueDate = $state(assessment.dueDate ? assessment.dueDate.toISOString().split('T')[0] : '');
 
   function handleSubmit() {
     dispatch('save', {
@@ -31,7 +30,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="space-y-4">
+<form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }} class="space-y-4">
   <div>
     <Label for="title">Assessment Title</Label>
     <Input id="title" bind:value={title} required />

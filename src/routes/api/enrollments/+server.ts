@@ -1,16 +1,6 @@
 import { json, error } from "@sveltejs/kit";
-import { getFirestore } from "firebase-admin/firestore";
-import { initializeApp, getApps } from "firebase-admin/app";
+import { getDb } from "$lib/firebase-admin";
 import type { Enrollment } from "$lib/types/enrollment";
-
-// Initialize Firebase Admin if not already
-if (!getApps().length) {
-  initializeApp({
-    // config
-  });
-}
-
-const db = getFirestore();
 
 export async function GET({ locals }: { locals: any }) {
   try {
@@ -18,12 +8,13 @@ export async function GET({ locals }: { locals: any }) {
       throw error(401, "Unauthorized");
     }
 
+    const db = getDb();
     const enrollmentsRef = db.collection("enrollments");
     const snapshot = await enrollmentsRef
       .where("userId", "==", locals.user.uid)
       .get();
-    const enrollments: Enrollment[] = [];
 
+    const enrollments: Enrollment[] = [];
     snapshot.forEach((doc) => {
       enrollments.push({ id: doc.id, ...doc.data() } as Enrollment);
     });
@@ -31,7 +22,7 @@ export async function GET({ locals }: { locals: any }) {
     return json(enrollments);
   } catch (err) {
     console.error("Error fetching enrollments:", err);
-    throw error(500, "Error fetching enrollments");
+    throw error(500, "Failed to fetch enrollments");
   }
 }
 
@@ -52,10 +43,9 @@ export async function POST({
       ...data,
       userId: locals.user.uid,
       enrolledAt: new Date(),
-      status: "enrolled",
-      progress: 0,
     };
 
+    const db = getDb();
     const docRef = await db.collection("enrollments").add(enrollmentData);
     const enrollment = { id: docRef.id, ...enrollmentData };
 

@@ -6,10 +6,11 @@
   import { Label } from '$lib/components/ui/label';
   import type { Question } from '$lib/types/assessment';
 
-  export let questions: Question[] = [];
-  export let loading = false;
+  let { questions: initialQuestions = [], loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ save: Question[] }>();
+
+  let questions = $state(initialQuestions);
 
   function addQuestion() {
     questions = [...questions, {
@@ -22,7 +23,7 @@
   }
 
   function removeQuestion(index: number) {
-    questions = questions.filter((_, i) => i !== index);
+    questions = questions.filter((_: Question, i: number) => i !== index);
   }
 
   function addOption(qIndex: number) {
@@ -30,7 +31,7 @@
   }
 
   function removeOption(qIndex: number, oIndex: number) {
-    questions[qIndex].options = questions[qIndex].options?.filter((_, i) => i !== oIndex);
+    questions[qIndex].options = questions[qIndex].options?.filter((_: string, i: number) => i !== oIndex);
   }
 
   function handleSubmit() {
@@ -41,14 +42,14 @@
 <div class="space-y-4">
   <div class="flex justify-between items-center">
     <h3 class="text-lg font-semibold">Quiz Questions</h3>
-    <Button on:click={addQuestion} variant="outline">Add Question</Button>
+    <Button onclick={addQuestion} variant="outline">Add Question</Button>
   </div>
 
   {#each questions as question, qIndex}
     <div class="border p-4 rounded space-y-2">
       <div class="flex justify-between">
         <Label>Question {qIndex + 1}</Label>
-        <Button on:click={() => removeQuestion(qIndex)} variant="destructive" size="sm">Remove</Button>
+        <Button onclick={() => removeQuestion(qIndex)} variant="destructive" size="sm">Remove</Button>
       </div>
 
       <select bind:value={question.type} class="w-full p-2 border rounded">
@@ -64,11 +65,11 @@
           <Label>Options</Label>
           {#each question.options || [] as option, oIndex}
             <div class="flex gap-2">
-              <Input bind:value={option} placeholder="Option {oIndex + 1}" />
-              <Button on:click={() => removeOption(qIndex, oIndex)} variant="outline" size="sm">Remove</Button>
+              <Input bind:value={questions[qIndex].options[oIndex]} placeholder="Option {oIndex + 1}" />
+              <Button onclick={() => removeOption(qIndex, oIndex)} variant="outline" size="sm">Remove</Button>
             </div>
           {/each}
-          <Button on:click={() => addOption(qIndex)} variant="outline" size="sm">Add Option</Button>
+          <Button onclick={() => addOption(qIndex)} variant="outline" size="sm">Add Option</Button>
         </div>
       {/if}
 
@@ -76,7 +77,7 @@
     </div>
   {/each}
 
-  <Button on:click={handleSubmit} disabled={loading}>
+  <Button onclick={handleSubmit} disabled={loading}>
     {#if loading}Saving...{:else}Save Questions{/if}
   </Button>
 </div>

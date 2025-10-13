@@ -1,17 +1,6 @@
 import { json, error } from "@sveltejs/kit";
-import { getFirestore } from "firebase-admin/firestore";
-import { initializeApp, getApps } from "firebase-admin/app";
+import { getDb } from "$lib/firebase-admin";
 import type { Course } from "$lib/types/course";
-
-// Initialize Firebase Admin if not already
-if (!getApps().length) {
-  // Assume env vars are set
-  initializeApp({
-    // config
-  });
-}
-
-const db = getFirestore();
 
 export async function GET({ locals }: { locals: any }) {
   try {
@@ -20,12 +9,13 @@ export async function GET({ locals }: { locals: any }) {
       throw error(401, "Unauthorized");
     }
 
+    const db = getDb();
     const coursesRef = db.collection("courses");
     const snapshot = await coursesRef
       .where("instructorId", "==", locals.user.uid)
       .get();
-    const courses: Course[] = [];
 
+    const courses: Course[] = [];
     snapshot.forEach((doc) => {
       courses.push({ id: doc.id, ...doc.data() } as Course);
     });
@@ -33,7 +23,7 @@ export async function GET({ locals }: { locals: any }) {
     return json(courses);
   } catch (err) {
     console.error("Error fetching courses:", err);
-    throw error(500, "Error fetching courses");
+    throw error(500, "Failed to fetch courses");
   }
 }
 
@@ -57,6 +47,7 @@ export async function POST({
       updatedAt: new Date(),
     };
 
+    const db = getDb();
     const docRef = await db.collection("courses").add(courseData);
     const course = { id: docRef.id, ...courseData };
 

@@ -3,15 +3,15 @@
   import CourseList from '$lib/components/course/CourseList.svelte';
   import CourseForm from '$lib/components/course/CourseForm.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '$lib/components/ui/dialog';
+  // import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '$lib/components/ui/dialog';
   import type { Course } from '$lib/types/course';
   import type { PageData } from './$types';
 
-  export let data: PageData;
+  let { data }: { data: PageData } = $props();
 
-  let courses: Course[] = data.courses || [];
-  let showCreateDialog = false;
-  let creating = false;
+  let courses: Course[] = $state(data.courses || []);
+  let showCreateDialog = $state(false);
+  let creating = $state(false);
 
   async function handleCreate(courseData: Partial<Course>) {
     creating = true;
@@ -54,14 +54,14 @@
 </svelte:head>
 
 <div class="container mx-auto py-8">
-  <CourseList {courses} on:edit={handleEdit} on:delete={handleDelete} on:create={() => showCreateDialog = true} />
+  <CourseList {courses} onEdit={handleEdit} onDelete={handleDelete} onCreate={() => showCreateDialog = true} />
 
-  <Dialog bind:open={showCreateDialog}>
+  <!-- <Dialog bind:open={showCreateDialog}>
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Create New Course</DialogTitle>
       </DialogHeader>
       <CourseForm loading={creating} on:save={handleCreate} />
     </DialogContent>
-  </Dialog>
+  </Dialog> -->
 </div>

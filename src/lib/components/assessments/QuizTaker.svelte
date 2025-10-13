@@ -6,12 +6,11 @@
   import { Label } from '$lib/components/ui/label';
   import type { Question, Answer } from '$lib/types/assessment';
 
-  export let questions: Question[] = [];
-  export let loading = false;
+  let { questions = [], loading = false } = $props();
 
   const dispatch = createEventDispatcher<{ submit: Answer[] }>();
 
-  let answers: Answer[] = questions.map(q => ({ questionId: q.id, answer: '' }));
+  let answers = $state<Answer[]>(questions.map(q => ({ questionId: q.id, answer: '' })));
 
   function handleSubmit() {
     dispatch('submit', answers);
@@ -68,7 +67,7 @@
     </div>
   {/each}
 
-  <Button on:click={handleSubmit} disabled={loading}>
+  <Button onclick={handleSubmit} disabled={loading}>
     {#if loading}Submitting...{:else}Submit Quiz{/if}
   </Button>
 </div>

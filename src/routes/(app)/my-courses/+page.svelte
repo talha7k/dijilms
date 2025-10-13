@@ -6,9 +6,9 @@
   import type { Enrollment } from '$lib/types/enrollment';
   import type { Course } from '$lib/types/course';
 
-  let enrollments: Enrollment[] = [];
-  let courses: Course[] = [];
-  let loading = true;
+  let enrollments = $state<Enrollment[]>([]);
+  let courses = $state<Course[]>([]);
+  let loading = $state(true);
 
   onMount(async () => {
     await loadEnrollments();
@@ -82,7 +82,7 @@
               </div>
               <div class="flex gap-2">
                 <Button variant="outline" size="sm">Continue</Button>
-                <Button variant="destructive" size="sm" on:click={() => handleUnenroll(enrollment)}>Unenroll</Button>
+                <Button variant="destructive" size="sm" onclick={() => handleUnenroll(enrollment)}>Unenroll</Button>
               </div>
             </CardContent>
           </Card>

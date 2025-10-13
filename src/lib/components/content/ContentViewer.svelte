@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Content } from '$lib/types/content';
 
-  export let content: Content;
+  let { content }: { content: Content } = $props();
 </script>
 
 {#if content.type === 'video'}

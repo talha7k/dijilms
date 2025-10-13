@@ -1,16 +1,6 @@
 import { json, error } from "@sveltejs/kit";
-import { getFirestore } from "firebase-admin/firestore";
-import { initializeApp, getApps } from "firebase-admin/app";
+import { getDb } from "$lib/firebase-admin";
 import type { Enrollment } from "$lib/types/enrollment";
-
-// Initialize Firebase Admin if not already
-if (!getApps().length) {
-  initializeApp({
-    // config
-  });
-}
-
-const db = getFirestore();
 
 export async function GET({
   params,
@@ -24,6 +14,7 @@ export async function GET({
       throw error(401, "Unauthorized");
     }
 
+    const db = getDb();
     const docRef = db.collection("enrollments").doc(params.id);
     const doc = await docRef.get();
 
@@ -36,14 +27,10 @@ export async function GET({
     if (enrollment.userId !== locals.user.uid) {
       throw error(403, "Forbidden");
     }
-
     return json(enrollment);
   } catch (err) {
     console.error("Error fetching enrollment:", err);
-    if (err instanceof Error && "status" in err) {
-      throw err;
-    }
-    throw error(500, "Error fetching enrollment");
+    throw error(500, "Failed to fetch enrollment");
   }
 }
 
@@ -62,6 +49,7 @@ export async function PUT({
     }
 
     const data = await request.json();
+    const db = getDb();
     const docRef = db.collection("enrollments").doc(params.id);
     const doc = await docRef.get();
 
@@ -79,9 +67,6 @@ export async function PUT({
     return json({ success: true });
   } catch (err) {
     console.error("Error updating enrollment:", err);
-    if (err instanceof Error && "status" in err) {
-      throw err;
-    }
     throw error(500, "Error updating enrollment");
   }
 }
@@ -98,6 +83,7 @@ export async function DELETE({
       throw error(401, "Unauthorized");
     }
 
+    const db = getDb();
     const docRef = db.collection("enrollments").doc(params.id);
     const doc = await docRef.get();
 
@@ -115,9 +101,6 @@ export async function DELETE({
     return json({ success: true });
   } catch (err) {
     console.error("Error deleting enrollment:", err);
-    if (err instanceof Error && "status" in err) {
-      throw err;
-    }
     throw error(500, "Error deleting enrollment");
   }
 }

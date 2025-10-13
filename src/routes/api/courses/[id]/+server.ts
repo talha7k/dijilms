@@ -1,16 +1,7 @@
 import { json, error } from "@sveltejs/kit";
-import { getFirestore } from "firebase-admin/firestore";
-import { initializeApp, getApps } from "firebase-admin/app";
+import { getDb } from "$lib/firebase-admin";
 import type { Course } from "$lib/types/course";
-
-// Initialize Firebase Admin if not already
-if (!getApps().length) {
-  initializeApp({
-    // config
-  });
-}
-
-const db = getFirestore();
+import type { RequestHandler } from "./$types";
 
 export async function GET({
   params,
@@ -24,6 +15,7 @@ export async function GET({
       throw error(401, "Unauthorized");
     }
 
+    const db = getDb();
     const docRef = db.collection("courses").doc(params.id);
     const doc = await docRef.get();
 
@@ -41,9 +33,6 @@ export async function GET({
     return json(course);
   } catch (err) {
     console.error("Error fetching course:", err);
-    if (err instanceof Error && "status" in err) {
-      throw err;
-    }
     throw error(500, "Error fetching course");
   }
 }
@@ -63,6 +52,7 @@ export async function PUT({
     }
 
     const data = await request.json();
+    const db = getDb();
     const docRef = db.collection("courses").doc(params.id);
     const doc = await docRef.get();
 
@@ -80,9 +70,6 @@ export async function PUT({
     return json({ success: true });
   } catch (err) {
     console.error("Error updating course:", err);
-    if (err instanceof Error && "status" in err) {
-      throw err;
-    }
     throw error(500, "Error updating course");
   }
 }
@@ -99,6 +86,7 @@ export async function DELETE({
       throw error(401, "Unauthorized");
     }
 
+    const db = getDb();
     const docRef = db.collection("courses").doc(params.id);
     const doc = await docRef.get();
 
@@ -116,9 +104,6 @@ export async function DELETE({
     return json({ success: true });
   } catch (err) {
     console.error("Error deleting course:", err);
-    if (err instanceof Error && "status" in err) {
-      throw err;
-    }
     throw error(500, "Error deleting course");
   }
 }
