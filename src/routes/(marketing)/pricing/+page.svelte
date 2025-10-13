@@ -14,11 +14,11 @@
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="mb-12 flex flex-col items-center justify-between lg:flex-row">
 			<h2 class="font-manrope mb-4 text-center text-5xl font-bold lg:text-left">
-				Simple pricing for everyone
+				Flexible pricing for every educational institution
 			</h2>
 			<div class="flex flex-col items-center gap-3 lg:flex-row">
 				<span class="flex items-center gap-2">
-					<Icon icon="lucide:database" width={20} /> Save up to 30%
+					<Icon icon="lucide:graduation-cap" width={20} /> Save up to 20%
 				</span>
 				<div class="flex items-center space-x-2">
 					<Label for="billing-switch">Monthly</Label>

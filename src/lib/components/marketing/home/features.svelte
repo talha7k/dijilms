@@ -10,17 +10,16 @@
 			<h2
 				class="mb-6 max-w-max text-center text-4xl font-bold leading-[3.25rem] lg:mx-auto lg:max-w-2xl"
 			>
-				Kickstart your Firebase-powered SvelteKit project
+				Transform Learning with Our Advanced LMS Platform
 			</h2>
 			<p class="mb-8 text-base font-normal lg:mx-auto lg:max-w-xl">
-				A ready-to-use template combining the speed of SvelteKit with Firebase's powerful backend
-				services
+				A comprehensive Learning Management System designed for educators, students, and institutions with AI-powered tools and multi-role portals
 			</p>
 			<div
 				class="mx-auto flex max-w-lg flex-col justify-center gap-5 md:max-w-2xl md:flex-row lg:max-w-full"
 			>
-				<Button size="lg" href="https://github.com/talha7k/svelte-firebase-starter-kit.git"
-					>Start Building</Button
+				<Button size="lg" href="/features"
+					>Explore Features</Button
 				>
 
 			</div>
@@ -36,24 +35,23 @@
 						<div class="flex flex-row flex-wrap justify-between rounded-lg">
 							<div class="w-full p-5 md:w-1/2 xl:p-8">
 								<div class="block">
-									<Icon icon="lucide:flame" width={30} />
+									<Icon icon="lucide:book-open" width={30} />
 								</div>
 								<h3 class="w-full py-5 text-lg font-bold xl:w-64 xl:text-xl">
-									Authentication Ready
+									Comprehensive Course Management
 								</h3>
 								<p class="mb-8 w-full text-xs font-normal xl:w-64">
-									Get started with Firebase Authentication in minutes. Email/password, Google, and
-									social auth providers pre-configured.
+									Create, organize, and deliver engaging courses with multimedia content, modules, and learning paths tailored for modern education.
 								</p>
-								<Button variant="outline" href="https://dijitize.com/libs/svelte-firekit/auth">
-									Explore Auth
+								<Button variant="outline" href="/features">
+									Explore Courses
 									<span class="ml-2">→</span>
 								</Button>
 							</div>
 							<div class="relative hidden h-auto md:block md:w-1/2">
 								<img
 									src="https://placehold.co/400x320"
-									alt="Authentication Feature"
+									alt="Course Management Feature"
 									class="ml-auto h-full object-cover"
 								/>
 							</div>
@@ -66,17 +64,17 @@
 			<Card.Root>
 				<Card.Content class="p-5 xl:p-8">
 					<div class="block">
-						<Icon icon="lucide:database" width={30} />
+						<Icon icon="lucide:brain" width={30} />
 					</div>
-					<h3 class="py-5 text-lg font-bold xl:text-xl">Firestore Integration</h3>
+					<h3 class="py-5 text-lg font-bold xl:text-xl">AI-Powered Assessments</h3>
 					<p class="mb-8 text-xs font-normal">
-						Built-in Firestore hooks and utilities for real-time data sync and CRUD operations
+						Generate quizzes and assessments automatically with AI, including adaptive testing and instant grading for personalized learning.
 					</p>
 					<Button
 						variant="outline"
-						href="https://dijitize.com/libs/svelte-firekit/firestore/doc-mutation"
+						href="/features"
 					>
-						View Database
+						View Assessments
 						<span class="ml-2">→</span>
 					</Button>
 				</Card.Content>
@@ -86,14 +84,14 @@
 			<Card.Root>
 				<Card.Content class="p-5 xl:p-8">
 					<div class="block">
-						<Icon icon="lucide:shield" width={30} />
+						<Icon icon="lucide:users" width={30} />
 					</div>
-					<h3 class="py-5 text-lg font-bold xl:text-xl">Dark Mode</h3>
+					<h3 class="py-5 text-lg font-bold xl:text-xl">Multi-Role Portals</h3>
 					<p class="mb-8 text-xs font-normal">
-						Ready-to-use dark mode toggle with local storage persistence
+						Dedicated dashboards for teachers, students, parents, and administrators with role-based access and communication tools.
 					</p>
-					<Button variant="outline" href="https://github.com/svecosystem/mode-watcher">
-						Toggle Dark Mode
+					<Button variant="outline" href="/features">
+						Explore Portals
 						<span class="ml-2">→</span>
 					</Button>
 				</Card.Content>

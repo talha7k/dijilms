@@ -9,88 +9,87 @@
 		<div class="mx-auto mb-16 max-w-3xl xl:max-w-full">
 			<span class="mb-2 block text-center text-sm uppercase lg:text-left">Features</span>
 			<h2 class="text-center text-4xl font-semibold leading-[3.2rem] lg:text-left">
-				Everything you need to build <span class="text-primary">Firebase-powered</span> apps
+				Everything you need for <span class="text-primary">Modern Education</span>
 			</h2>
 		</div>
 
 		<div
 			class="mx-auto grid max-w-md grid-cols-1 gap-x-5 gap-y-5 sm:max-w-3xl sm:grid-cols-2 xl:max-w-full xl:grid-cols-4 xl:gap-x-8 xl:gap-y-8"
 		>
-			<!-- Firebase Integration -->
+			<!-- Course Management -->
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:flame" width={26} />
+						<Icon icon="lucide:book-open" width={26} />
 					</div>
-					<h4 class="mb-2 text-base font-semibold capitalize">Firebase Integration</h4>
+					<h4 class="mb-2 text-base font-semibold capitalize">Course Management</h4>
 					<p class="text-sm leading-5">
-						Pre-configured Firebase setup with authentication, Firestore, and storage services ready
-						to use
+						Create and organize comprehensive courses with multimedia content, modules, and customizable learning paths
 					</p>
 				</Card.Content>
 			</Card.Root>
 
-			<!-- Auth Guard -->
+			<!-- AI-Powered Assessments -->
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:shield" width={26} />
+						<Icon icon="lucide:brain" width={26} />
 					</div>
-					<h4 class="mb-2 text-base font-semibold capitalize">Auth Guard Handling</h4>
+					<h4 class="mb-2 text-base font-semibold capitalize">AI-Powered Assessments</h4>
 					<p class="text-sm leading-5">
-						Built-in authentication guards and user session management for secure routing
+						Generate quizzes automatically, adaptive testing, and instant AI-driven grading for personalized learning
 					</p>
 				</Card.Content>
 			</Card.Root>
 
-			<!-- Svelte 5 -->
+			<!-- Progress Tracking -->
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
-						<Icon icon="lucide:sparkles" width={26} />
+						<Icon icon="lucide:bar-chart" width={26} />
 					</div>
-					<h4 class="mb-2 text-base font-semibold capitalize">Svelte 5 Ready</h4>
+					<h4 class="mb-2 text-base font-semibold capitalize">Advanced Progress Tracking</h4>
 					<p class="text-sm leading-5">
-						Built with the latest Svelte 5 features including runes and view transitions
+						Detailed analytics and real-time progress monitoring for students, teachers, and parents
 					</p>
 				</Card.Content>
 			</Card.Root>
 
-			<!-- ShadcnUI -->
-			<Card.Root>
-				<Card.Content class="p-4 xl:p-7">
-					<div class="mb-6">
-						<Icon icon="lucide:boxes" width={26} />
-					</div>
-					<h4 class="mb-2 text-base font-semibold capitalize">ShadcnUI Integration</h4>
-					<p class="text-sm leading-5">
-						Beautiful, accessible components with ShadcnUI for Svelte built-in
-					</p>
-				</Card.Content>
-			</Card.Root>
-
-			<!-- Pre-built Pages -->
-			<Card.Root>
-				<Card.Content class="p-4 xl:p-7">
-					<div class="mb-6">
-						<Icon icon="lucide:layout" width={26} />
-					</div>
-					<h4 class="mb-2 text-base font-semibold capitalize">Pre-built Pages</h4>
-					<p class="text-sm leading-5">
-						Ready-to-use pages for authentication, dashboard, and common features
-					</p>
-				</Card.Content>
-			</Card.Root>
-
-			<!-- User Components -->
+			<!-- Multi-Role Portals -->
 			<Card.Root>
 				<Card.Content class="p-4 xl:p-7">
 					<div class="mb-6">
 						<Icon icon="lucide:users" width={26} />
 					</div>
-					<h4 class="mb-2 text-base font-semibold capitalize">User Management</h4>
+					<h4 class="mb-2 text-base font-semibold capitalize">Multi-Role Portals</h4>
 					<p class="text-sm leading-5">
-						Complete user account management components and functionality
+						Dedicated dashboards for teachers, students, parents, and administrators with role-based features
+					</p>
+				</Card.Content>
+			</Card.Root>
+
+			<!-- Communication Tools -->
+			<Card.Root>
+				<Card.Content class="p-4 xl:p-7">
+					<div class="mb-6">
+						<Icon icon="lucide:message-circle" width={26} />
+					</div>
+					<h4 class="mb-2 text-base font-semibold capitalize">Communication Tools</h4>
+					<p class="text-sm leading-5">
+						Built-in messaging, notifications, and collaboration features for seamless stakeholder communication
+					</p>
+				</Card.Content>
+			</Card.Root>
+
+			<!-- Gamification & Certifications -->
+			<Card.Root>
+				<Card.Content class="p-4 xl:p-7">
+					<div class="mb-6">
+						<Icon icon="lucide:trophy" width={26} />
+					</div>
+					<h4 class="mb-2 text-base font-semibold capitalize">Gamification & Certifications</h4>
+					<p class="text-sm leading-5">
+						Badges, leaderboards, and automated certification generation to motivate and recognize achievements
 					</p>
 				</Card.Content>
 			</Card.Root>
@@ -98,11 +97,11 @@
 			<!-- CTA Section -->
 			<div class="relative mt-8 rounded-2xl sm:col-span-2 xl:mt-0">
 				<p class="mb-9 text-center text-base leading-6 xl:text-left">
-					Start building your next project in minutes with our production-ready template
+					Transform your educational institution with our comprehensive LMS platform
 				</p>
 				<div class="flex flex-col items-center justify-center gap-7 xl:flex-row xl:justify-start">
-					<Button size="lg">Get Started</Button>
-					<span class="text-sm">*Open source and MIT licensed</span>
+					<Button size="lg" href="/pricing">Get Started</Button>
+					<span class="text-sm">*Free trial available</span>
 				</div>
 			</div>
 		</div>
