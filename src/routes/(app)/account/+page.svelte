@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Avatar from '$lib/components/app/account/avatar.svelte';
 	import PersonalInformation from '$lib/components/app/account/personal-information.svelte';
+	import RoleSelector from '$lib/components/app/account/role-selector.svelte';
 	import * as Card from '$lib/components/ui/card';
 </script>
 
@@ -14,6 +15,7 @@
 			<div class="flex flex-col justify-start gap-6">
 				<Avatar />
 				<PersonalInformation />
+				<RoleSelector />
 			</div>
 		</Card.Content>
 	</Card.Root>
