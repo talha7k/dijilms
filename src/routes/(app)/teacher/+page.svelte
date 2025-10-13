@@ -16,37 +16,48 @@
     <p class="text-muted-foreground">Manage your courses and monitor student progress.</p>
   </div>
 
-  <Tabs value="overview">
-    <TabsList>
-      <TabsTrigger value="overview">Overview</TabsTrigger>
-      <TabsTrigger value="analytics">Analytics</TabsTrigger>
-    </TabsList>
-    <TabsContent value="overview">
-      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-lg border p-4">
-          <h3 class="font-semibold">Total Courses</h3>
-          <p class="text-2xl font-bold">0</p>
-        </div>
-        <div class="rounded-lg border p-4">
-          <h3 class="font-semibold">Active Students</h3>
-          <p class="text-2xl font-bold">0</p>
-        </div>
-        <div class="rounded-lg border p-4">
-          <h3 class="font-semibold">Assignments Due</h3>
-          <p class="text-2xl font-bold">0</p>
-        </div>
-        <div class="rounded-lg border p-4">
-          <h3 class="font-semibold">Recent Activity</h3>
-          <p class="text-2xl font-bold">0</p>
-        </div>
-      </div>
-    </TabsContent>
-    <TabsContent value="analytics">
-      <div class="rounded-lg border p-4">
-        <h2 class="text-xl font-semibold mb-4">Analytics and Reporting</h2>
-        <p>View detailed analytics and reports on student performance.</p>
-        <!-- Placeholder for analytics charts and reports -->
-      </div>
-    </TabsContent>
+   <Tabs value="courses">
+     <TabsList>
+       <TabsTrigger value="courses">Courses</TabsTrigger>
+       <TabsTrigger value="assessments">Assessments</TabsTrigger>
+       <TabsTrigger value="grading">Grading</TabsTrigger>
+       <TabsTrigger value="communication">Communication</TabsTrigger>
+       <TabsTrigger value="notifications">Notifications</TabsTrigger>
+     </TabsList>
+     <TabsContent value="courses">
+       <div class="rounded-lg border p-4">
+         <h2 class="text-xl font-semibold mb-4">Course Management</h2>
+         <p>Manage your courses and content.</p>
+         <!-- Placeholder for course list and management -->
+       </div>
+     </TabsContent>
+     <TabsContent value="assessments">
+       <div class="rounded-lg border p-4">
+         <h2 class="text-xl font-semibold mb-4">Assessment Management</h2>
+         <p>Create and manage assessments for your courses.</p>
+         <!-- Placeholder for assessment creation and listing -->
+       </div>
+     </TabsContent>
+     <TabsContent value="grading">
+       <div class="rounded-lg border p-4">
+         <h2 class="text-xl font-semibold mb-4">Grading</h2>
+         <p>Grade student submissions and view results.</p>
+         <!-- Placeholder for grading interface -->
+       </div>
+     </TabsContent>
+     <TabsContent value="communication">
+       <div class="rounded-lg border p-4">
+         <h2 class="text-xl font-semibold mb-4">Communication</h2>
+         <p>Communicate with students and parents.</p>
+         <!-- Placeholder for communication tools -->
+       </div>
+     </TabsContent>
+     <TabsContent value="notifications">
+       <div class="rounded-lg border p-4">
+         <h2 class="text-xl font-semibold mb-4">Notifications</h2>
+         <p>View notifications about student activity and system updates.</p>
+         <!-- Placeholder for notifications -->
+       </div>
+     </TabsContent>
   </Tabs>
 </div>

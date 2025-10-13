@@ -1,5 +1,7 @@
-## ADDED Requirements
+## Purpose
 
+The student portal offers learners personalized access to enrolled courses, assessments, progress tracking, notifications, and communication with teachers.
+## Requirements
 ### Requirement: Student Dashboard
 
 Students SHALL have a personalized dashboard.
@@ -26,3 +28,31 @@ Students SHALL view their learning progress.
 
 - **WHEN** in the portal
 - **THEN** progress bars and completion status are shown
+
+### Requirement: Assessment Taking
+
+Students SHALL take assessments for their courses.
+
+#### Scenario: Access assessment
+
+- **WHEN** a student selects an assessment
+- **THEN** they can take it
+
+### Requirement: Notifications
+
+Students SHALL receive notifications about assignments and progress.
+
+#### Scenario: View notifications
+
+- **WHEN** in the portal
+- **THEN** notifications are displayed
+
+### Requirement: Communication Tools
+
+Students SHALL communicate with teachers.
+
+#### Scenario: Message teacher
+
+- **WHEN** a student sends a message
+- **THEN** the teacher receives it
+
