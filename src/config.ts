@@ -45,6 +45,26 @@ export const appNavItems: SidebarNav[] = [
     ],
   },
   {
+    title: "Student Portal",
+    items: [
+      {
+        title: "My Learning",
+        url: "/student",
+        icon: "lucide:graduation-cap",
+      },
+      {
+        title: "My Courses",
+        url: "/student/courses",
+        icon: "lucide:book-open",
+      },
+      {
+        title: "Progress",
+        url: "/student/progress",
+        icon: "lucide:bar-chart",
+      },
+    ],
+  },
+  {
     title: "Teacher Portal",
     items: [
       {

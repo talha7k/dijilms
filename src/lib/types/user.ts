@@ -26,7 +26,7 @@ export interface UserProfile {
   language: string;
 
   // Role-based access control
-  role: "user" | "admin" | "moderator" | "teacher";
+  role: "user" | "admin" | "moderator" | "teacher" | "student";
   permissions: string[];
 
   // Address information (optional)

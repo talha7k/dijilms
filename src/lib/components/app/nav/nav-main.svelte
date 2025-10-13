@@ -7,7 +7,7 @@
  </script>
 
 {#each appNavItems as mainItem (mainItem.title)}
-  {#if mainItem.title !== 'Teacher Portal' || $userProfile.data?.role === 'teacher'}
+  {#if (mainItem.title !== 'Teacher Portal' || $userProfile.data?.role === 'teacher') && (mainItem.title !== 'Student Portal' || $userProfile.data?.role === 'student' || $userProfile.data?.role === 'user')}
     <Sidebar.Group>
       <Sidebar.GroupLabel>{mainItem.title}</Sidebar.GroupLabel>
       {#each mainItem.items as item (item.title)}
