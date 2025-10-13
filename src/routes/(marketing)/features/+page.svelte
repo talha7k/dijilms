@@ -105,5 +105,170 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Detailed Feature Explanations -->
+		<div class="mt-24 space-y-16">
+			<!-- Course Management Detail -->
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+				<div>
+					<h3 class="text-2xl font-bold mb-4">Comprehensive Course Management</h3>
+					<p class="text-lg text-muted-foreground mb-6">
+						Create engaging courses with multimedia content, structured modules, and customizable learning paths. Our intuitive course builder allows educators to design interactive lessons that adapt to different learning styles.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Multimedia content support (videos, documents, quizzes)</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Modular course structure with prerequisites</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Customizable learning paths and certificates</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-muted rounded-lg p-8">
+					<img src="https://placehold.co/500x300" alt="Course Management Interface" class="w-full rounded" />
+				</div>
+			</div>
+
+			<!-- AI-Powered Assessments Detail -->
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+				<div class="order-2 lg:order-1 bg-muted rounded-lg p-8">
+					<img src="https://placehold.co/500x300" alt="AI Assessment Tools" class="w-full rounded" />
+				</div>
+				<div class="order-1 lg:order-2">
+					<h3 class="text-2xl font-bold mb-4">AI-Powered Assessments</h3>
+					<p class="text-lg text-muted-foreground mb-6">
+						Revolutionary assessment tools powered by AI to create personalized quizzes, provide instant feedback, and adapt to student learning patterns for optimal educational outcomes.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Automatic quiz generation from course content</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Adaptive testing based on student performance</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Instant AI-driven grading and feedback</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Progress Tracking Detail -->
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+				<div>
+					<h3 class="text-2xl font-bold mb-4">Advanced Progress Tracking</h3>
+					<p class="text-lg text-muted-foreground mb-6">
+						Comprehensive analytics and real-time progress monitoring to track student performance, identify learning gaps, and provide data-driven insights for educators and parents.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Real-time progress dashboards</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Detailed performance analytics</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Early intervention alerts</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-muted rounded-lg p-8">
+					<img src="https://placehold.co/500x300" alt="Progress Tracking Dashboard" class="w-full rounded" />
+				</div>
+			</div>
+
+			<!-- Multi-Role Portals Detail -->
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+				<div class="order-2 lg:order-1 bg-muted rounded-lg p-8">
+					<img src="https://placehold.co/500x300" alt="Multi-Role Portals" class="w-full rounded" />
+				</div>
+				<div class="order-1 lg:order-2">
+					<h3 class="text-2xl font-bold mb-4">Multi-Role Portals</h3>
+					<p class="text-lg text-muted-foreground mb-6">
+						Dedicated interfaces for teachers, students, parents, and administrators, each with role-specific features and seamless communication tools for collaborative education.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Teacher dashboard with course management</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Student portal with personalized learning</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Parent access to child progress</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Communication Tools Detail -->
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+				<div>
+					<h3 class="text-2xl font-bold mb-4">Communication Tools</h3>
+					<p class="text-lg text-muted-foreground mb-6">
+						Built-in messaging, notifications, and collaboration features that facilitate seamless communication between all stakeholders in the educational process.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Direct messaging between teachers and parents</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Automated progress notifications</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Group discussion forums</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-muted rounded-lg p-8">
+					<img src="https://placehold.co/500x300" alt="Communication Tools" class="w-full rounded" />
+				</div>
+			</div>
+
+			<!-- Gamification & Certifications Detail -->
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+				<div class="order-2 lg:order-1 bg-muted rounded-lg p-8">
+					<img src="https://placehold.co/500x300" alt="Gamification Features" class="w-full rounded" />
+				</div>
+				<div class="order-1 lg:order-2">
+					<h3 class="text-2xl font-bold mb-4">Gamification & Certifications</h3>
+					<p class="text-lg text-muted-foreground mb-6">
+						Engage students with badges, leaderboards, and achievement systems while providing automated certification generation to recognize and reward learning milestones.
+					</p>
+					<ul class="space-y-2">
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Badges and achievement systems</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Leaderboards and competitions</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon icon="lucide:check" class="h-5 w-5 text-green-500" />
+							<span>Automated certificate generation</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>

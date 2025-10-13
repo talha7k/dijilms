@@ -108,21 +108,16 @@ export const appNavItems: SidebarNav[] = [
 
 export const socialLinks: SocialLink[] = [
   {
-    title: "talha7k",
-    url: "https://www.linkedin.com/in/talha7k/",
+    title: "Elite Riyadh",
+    url: "https://www.linkedin.com/company/elite-riyadh",
     icon: "linkedin",
-  },
-  {
-    title: "talha7k",
-    url: "https://github.com/talha7k/svelte-firebase-starter-kit.git",
-    icon: "github",
   },
 ];
 
 export const contactInfo = {
-  email: "info@codegio.com",
-  phone: "+52 818 201 2602",
-  address: "Monterrey, Mexico",
+  email: "info@enrich.sa",
+  phone: "+966 XX XXX XXXX", // Update with actual phone
+  address: "Riyadh, Saudi Arabia",
 };
 
 export const plans = {

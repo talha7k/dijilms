@@ -4,44 +4,44 @@
 
 	let { title = 'Frequently asked questions', faqs = [
 		{
-			question: 'How do I set up Firebase Authentication?',
+			question: 'How do I get started with the LMS?',
 			answer:
-				"The template comes with pre-configured Firebase Authentication. Just add your Firebase config to the .env file and you're ready to go. We support email/password, Google, and other social providers out of the box."
+				'Getting started is easy! Sign up for a free trial, invite your teachers and students, and start creating courses. Our onboarding wizard will guide you through the initial setup process.'
 		},
 		{
-			question: 'How does Firestore integration work?',
+			question: 'Can I import existing course content?',
 			answer:
-				'We provide custom hooks and utilities for Firestore operations. The template includes examples of CRUD operations, real-time subscriptions, and data modeling best practices for Firestore.'
+				'Yes! Our LMS supports importing content from various formats including SCORM packages, PDFs, videos, and existing learning management systems. We also provide bulk upload tools for large content libraries.'
 		},
 		{
-			question: 'Can I customize ShadcnUI components?',
+			question: 'How does the AI-powered assessment work?',
 			answer:
-				"Yes! All ShadcnUI components are fully customizable. The components are installed in your project's component library, allowing you to modify styles, behavior, and functionality as needed."
+				'Our AI analyzes your course content and automatically generates relevant quiz questions. It adapts difficulty based on student performance and provides instant feedback with detailed explanations.'
 		},
 		{
-			question: 'What do I need to start development?',
+			question: 'What roles and permissions are available?',
 			answer:
-				"You'll need Node.js 16+ and a Firebase project. Clone the repo, run npm install, add your Firebase config, and you're ready to start developing. Full setup instructions are in the documentation."
+				'We offer dedicated portals for Administrators, Teachers, Students, and Parents. Each role has customized permissions and features tailored to their specific needs in the educational process.'
 		},
 		{
-			question: 'How do I use Firebase Storage?',
+			question: 'How do parents access their child\'s progress?',
 			answer:
-				'The template includes pre-built components and hooks for Firebase Storage. You can easily upload files, manage storage rules, and handle image uploads with our built-in utilities.'
+				'Parents receive secure access through our Parent Portal where they can view real-time progress reports, grades, attendance, and communicate directly with teachers. All data is protected with enterprise-grade security.'
 		},
 		{
-			question: 'Is TypeScript fully supported?',
+			question: 'Can I customize the learning paths?',
 			answer:
-				'Yes, the template is built with TypeScript from the ground up. All components, hooks, and utilities are fully typed, providing excellent IDE support and type safety.'
+				'Absolutely! Create personalized learning paths based on student performance, interests, or curriculum requirements. Our adaptive learning technology adjusts content difficulty and pacing automatically.'
 		},
 		{
-			question: 'How do I deploy my application?',
+			question: 'What reporting and analytics are available?',
 			answer:
-				'The template is optimized for deployment to Vercel or Firebase Hosting. We provide deployment scripts and configuration files for both platforms. Just follow our deployment guide in the docs.'
+				'Comprehensive analytics include student performance tracking, course completion rates, engagement metrics, and predictive insights. Generate detailed reports for administrators, teachers, and parents.'
 		},
 		{
-			question: 'Do you provide updates and support?',
+			question: 'How secure is student data?',
 			answer:
-				'Yes! We regularly update the template with new features and security patches. For support, you can open issues on GitHub or join our Discord community.'
+				'We implement bank-level security with end-to-end encryption, GDPR compliance, and regular security audits. Student data is never shared with third parties, and we provide detailed privacy controls for all users.'
 		}
 	] } = $props();
 </script>
