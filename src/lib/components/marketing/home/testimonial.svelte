@@ -11,7 +11,7 @@
 			class="mx-auto flex max-w-lg flex-wrap items-center justify-center gap-y-8 md:max-w-3xl md:flex-wrap md:gap-y-0 xl:max-w-full xl:flex-row xl:flex-nowrap xl:justify-between xl:gap-x-8"
 		>
 			<div class="w-full xl:w-1/3">
-				<span class="mb-4 block text-sm font-medium text-indigo-600">Success Stories</span>
+				<span class="mb-4 block text-sm font-medium text-primary">Success Stories</span>
 				<h2 class="font-manrope mb-4 text-4xl font-bold leading-[3.25rem]">
 					What educators are achieving
 				</h2>
@@ -45,7 +45,7 @@
 										<h6 class="font-medium">Dr. Fatima Al-Zahra</h6>
 									</div>
 									<span
-										class="ml-4 border-l border-solid border-gray-300 pl-4 text-sm font-medium text-indigo-600"
+										class="ml-4 border-l border-solid border-border pl-4 text-sm font-medium text-primary"
 									>
 										School Principal
 									</span>
@@ -75,7 +75,7 @@
 										<h6 class="font-medium">Ahmed Al-Saud</h6>
 									</div>
 									<span
-										class="ml-4 border-l border-solid border-gray-300 pl-4 text-sm font-medium text-indigo-600"
+										class="ml-4 border-l border-solid border-border pl-4 text-sm font-medium text-primary"
 									>
 										Teacher
 									</span>
@@ -102,7 +102,7 @@
 										<h6 class="font-medium">Nora Al-Fayed</h6>
 									</div>
 									<span
-										class="ml-4 border-l border-solid border-gray-300 pl-4 text-sm font-medium text-indigo-600"
+										class="ml-4 border-l border-solid border-border pl-4 text-sm font-medium text-primary"
 									>
 										Parent
 									</span>

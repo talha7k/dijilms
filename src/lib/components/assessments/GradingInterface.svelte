@@ -31,14 +31,14 @@
         {#if submission.submission}
           <div>
             <Label>Submission Text</Label>
-            <div class="border p-2 rounded bg-gray-50">{submission.submission}</div>
+            <div class="border p-2 rounded bg-muted">{submission.submission}</div>
           </div>
         {/if}
 
         {#if submission.fileUrl}
           <div>
             <Label>Attached File</Label>
-            <a href={submission.fileUrl} target="_blank" class="text-blue-600 underline">Download File</a>
+            <a href={submission.fileUrl} target="_blank" class="text-primary underline">Download File</a>
           </div>
         {/if}
 

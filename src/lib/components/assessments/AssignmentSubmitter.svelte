@@ -41,7 +41,7 @@
       class="w-full p-2 border rounded"
     />
     {#if file}
-      <p class="text-sm text-gray-600">Selected: {file.name}</p>
+      <p class="text-sm text-muted-foreground">Selected: {file.name}</p>
     {/if}
   </div>
 

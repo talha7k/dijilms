@@ -82,10 +82,10 @@
 				<Input
 					placeholder="Enter full name"
 					bind:value={formData.displayName}
-					class={errors.displayName ? 'border-red-500' : ''}
+					class={errors.displayName ? 'border-destructive' : ''}
 				/>
 				{#if errors.displayName}
-					<p class="text-xs text-red-500">{errors.displayName}</p>
+					<p class="text-xs text-destructive">{errors.displayName}</p>
 				{:else}
 					<p class="text-xs text-muted-foreground">Enter your full name, or a display name</p>
 				{/if}
@@ -98,10 +98,10 @@
 					placeholder="Enter email address"
 					bind:value={formData.email}
 					type="email"
-					class={errors.email ? 'border-red-500' : ''}
+					class={errors.email ? 'border-destructive' : ''}
 				/>
 				{#if errors.email}
-					<p class="text-xs text-red-500">{errors.email}</p>
+					<p class="text-xs text-destructive">{errors.email}</p>
 				{:else}
 					<p class="text-xs text-muted-foreground">
 						Enter the email address you want to use to log in with.

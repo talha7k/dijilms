@@ -64,7 +64,7 @@
   {#if loading}
     <p>Loading...</p>
   {:else if enrollments.length === 0}
-    <p>You are not enrolled in any courses yet. <a href="/browse" class="text-blue-600">Browse courses</a></p>
+    <p>You are not enrolled in any courses yet. <a href="/browse" class="text-primary">Browse courses</a></p>
   {:else}
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {#each enrollments as enrollment}

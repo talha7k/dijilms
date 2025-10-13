@@ -12,6 +12,9 @@
 	let previousPath = $state(page.url.pathname);
 
 	let isNavOpen = $state(false);
+	let buttonRefs = $state<HTMLElement[]>(new Array(marketingNavItems.length).fill(null));
+	let activeIndex = $derived(marketingNavItems.findIndex(item => !item.items && path === item.url));
+
 	$effect(() => {
 		if (previousPath !== path) {
 			isNavOpen = false;
@@ -63,9 +66,9 @@
 					class="max-h-[75vh] overflow-hidden overflow-y-auto [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar]:w-2"
 				>
 					<div
-						class="flex flex-col items-center gap-0.5 py-2 md:flex-row md:justify-end md:gap-1 md:py-0"
+						class="relative flex flex-col items-center gap-0.5 py-2 md:flex-row md:justify-end md:gap-1 md:py-0"
 					>
-						{#each marketingNavItems as item}
+						{#each marketingNavItems as item, index}
 							{#if item.items && item.items?.length > 0}
 								<!-- Dropdown for items with sub-items -->
 								<DropdownMenu.Root>
@@ -84,7 +87,7 @@
 								</DropdownMenu.Root>
 							{:else}
 								<!-- Regular Button for single items -->
-								<Button variant="ghost" href={item.url} class={path === item.url ? 'text-primary font-semibold' : ''}>
+								<Button bind:this={buttonRefs[index]} variant="ghost" href={item.url}>
 									{#if item.icon}
 										<Icon icon={item.icon} />
 									{/if}
@@ -92,6 +95,9 @@
 								</Button>
 							{/if}
 						{/each}
+						{#if activeIndex >= 0 && buttonRefs[activeIndex]}
+							<div class="absolute top-0 bottom-0 bg-accent rounded-md transition-all duration-300 ease-in-out pointer-events-none" style="left: {buttonRefs[activeIndex].offsetLeft}px; width: {buttonRefs[activeIndex].offsetWidth}px;"></div>
+						{/if}
 						<SocialMediaIcons />
 						<div class="hidden md:block">
 							<DarkModeToggle />
