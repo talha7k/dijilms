@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { firekitAuth } from 'svelte-firekit';
+	import { firekitAuth, firekitDocMutations } from 'svelte-firekit';
 	import { Input } from '../ui/input/index.js';
 	import { signUpSchema } from '../../schemas/sign-up.js';
 	import { toast } from 'svelte-sonner';
@@ -13,6 +13,7 @@
 		lastName: '',
 		email: '',
 		password: '',
+		role: 'student',
 		agreeToTerms: false
 	});
 
@@ -21,6 +22,7 @@
 		lastName: '',
 		email: '',
 		password: '',
+		role: '',
 		agreeToTerms: ''
 	});
 
@@ -31,7 +33,7 @@
 		isSubmitting = true;
 
 		// Clear previous errors
-		errors = { firstName: '', lastName: '', email: '', password: '', agreeToTerms: '' };
+		errors = { firstName: '', lastName: '', email: '', password: '', role: '', agreeToTerms: '' };
 
 		try {
 			// Validate form data
@@ -49,7 +51,30 @@
 
 			// Sign up
 			const displayName = `${formData.firstName} ${formData.lastName}`;
-			await firekitAuth.registerWithEmail(formData.email, formData.password, displayName);
+			const userCredential = await firekitAuth.registerWithEmail(formData.email, formData.password, displayName);
+
+			// Create user profile
+			await firekitDocMutations.update(`users/${userCredential.user.uid}`, {
+				uid: userCredential.user.uid,
+				email: formData.email,
+				displayName,
+				firstName: formData.firstName,
+				lastName: formData.lastName,
+				isActive: true,
+				lastLoginAt: new Date(),
+				createdAt: new Date(),
+				updatedAt: new Date(),
+				emailNotifications: true,
+				pushNotifications: true,
+				theme: 'system',
+				language: 'en',
+				role: formData.role,
+				permissions: [],
+				metadata: {
+					accountStatus: 'active'
+				}
+			});
+
 			toast.success('Account created successfully');
 			goto('/dashboard');
 		} catch (error) {
@@ -114,6 +139,24 @@
 		/>
 		{#if errors.password}
 			<p class="text-sm text-destructive">{errors.password}</p>
+		{/if}
+	</div>
+	<div class="space-y-2">
+		<label for="role" class="text-sm font-medium">Role</label>
+		<select
+			id="role"
+			bind:value={formData.role}
+			class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+			disabled={isSubmitting}
+		>
+			<option value="admin">Admin</option>
+			<option value="teacher">Teacher</option>
+			<option value="student">Student</option>
+			<option value="parent">Parent</option>
+			<option value="management">Management</option>
+		</select>
+		{#if errors.role}
+			<p class="text-sm text-destructive">{errors.role}</p>
 		{/if}
 	</div>
 	<div class="space-y-2">

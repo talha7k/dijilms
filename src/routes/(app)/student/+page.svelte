@@ -3,7 +3,7 @@
   import { goto } from '$app/navigation';
 
   $effect(() => {
-    if ($userProfile.data && ($userProfile.data.role !== 'student' && $userProfile.data.role !== 'user')) {
+    if ($userProfile.data && $userProfile.data.role !== 'student') {
       goto('/dashboard');
     }
   });
